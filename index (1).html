@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BONGGOLAN — The Signature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Montserrat:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+        :root { --bg: #0a0a0a; --gold: #d4af37; --text-white: #ffffff; --text-dim: rgba(255, 255, 255, 0.6); }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: var(--bg); color: var(--text-white); line-height: 1.6; overflow-x: hidden; }
+        
+        /* Animasi Loading Awal */
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--bg); z-index: 9999; animation: fadeOut 1.5s forwards;
+            pointer-events: none;
+        }
+        @keyframes fadeOut { to { opacity: 0; } }
+
+        /* Running Text / Marquee */
+        .marquee {
+            background: var(--gold); color: var(--bg); padding: 8px 0;
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 600;
+            display: flex; overflow: hidden; white-space: nowrap; text-transform: uppercase;
+            border-top: 1px solid rgba(255,255,255,0.1); border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .marquee-inner { display: inline-block; animation: scroll 30s linear infinite; padding-left: 100%; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        header { 
+            height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; 
+            text-align: center; padding: 20px; background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%); 
+        }
+        .brand { 
+            font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 10vw, 4.5rem); letter-spacing: -2px; 
+            line-height: 0.9; margin: 0; background: linear-gradient(to bottom, #fff 30%, var(--gold) 100%); 
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-transform: uppercase; 
+        }
+        .brand-subtitle { color: var(--gold); font-size: 0.7rem; letter-spacing: 8px; margin-top: 15px; }
+
+        .container { max-width: 500px; margin: 0 auto; padding: 60px 25px; }
+        .card { position: relative; margin-bottom: 150px; }
+        .img-box { width: 100%; height: 500px; border-radius: 20px; overflow: hidden; position: relative; filter: grayscale(0.2); }
+        .card:hover .img-box { filter: grayscale(0); transform: scale(0.98); }
+        .product-img { width: 100%; height: 100%; object-fit: cover; }
+
+        .overlay-info { 
+            position: absolute; bottom: -50px; right: 0; background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 25px; 
+            border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); width: 85%; z-index: 10; 
+        }
+        .overlay-info.left { right: auto; left: 0; }
+
+        .product-name { font-family: 'Syne', sans-serif; font-size: 1.6rem; margin: 0; color: var(--gold); }
+        .product-price { font-size: 0.9rem; letter-spacing: 2px; margin-top: 5px; display: block; }
+        .product-desc { font-size: 0.8rem; color: var(--text-dim); margin: 10px 0 20px; }
+
+        .btn-luxury { 
+            display: block; width: 100%; padding: 15px; background: white; color: black; 
+            text-align: center; text-decoration: none; font-weight: 700; font-size: 0.7rem; 
+            letter-spacing: 3px; text-transform: uppercase; border-radius: 5px; 
+        }
+        .btn-luxury:hover { background: var(--gold); color: white; }
+
+        footer { 
+            text-align: center; padding: 80px 20px; border-top: 1px solid rgba(255,255,255,0.05); 
+            font-size: 0.6rem; letter-spacing: 4px; color: var(--text-dim); 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="marquee">
+        <div class="marquee-inner">
+            <span>BONGGOLAN GRESIK • AUTHENTIC TASTE • PREMIUM QUALITY • BONGGOLAN GRESIK • AUTHENTIC TASTE • PREMIUM QUALITY •</span>
+        </div>
+    </div>
+
+    <header>
+        <p class="brand-subtitle">AUTHENTIC GRESIK HERITAGE</p>
+        <h1 class="brand">BONGGOLAN</h1>
+        <p style="margin-top: 20px; max-width: 300px; font-size: 0.9rem; opacity: 0.8;">Cita rasa legendaris dari pesisir Gresik, disajikan untuk Anda yang istimewa.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="card">
+            <div class="img-box"><img src="snack1.jpg" alt="Bonggolan Original" class="product-img"></div>
+            <div class="overlay-info">
+                <h2 class="product-name">ORIGINAL CLASSIC</h2>
+                <span class="product-price">IDR 18,000</span>
+                <p class="product-desc">Resep otentik turun-temurun dengan gurihnya ikan payus segar dan tekstur kenyal sempurna.</p>
+                <a href="https://wa.me/62895358814387?text=Halo%20Bonggolan%2C%20saya%20tertarik%20dengan%20varian%20Original%20Classic." class="btn-luxury">Discover Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-box"><img src="snack2.jpg" alt="Bonggolan Pedas" class="product-img"></div>
+            <div class="overlay-info left">
+                <h2 class="product-name">SPICY MASTERPIECE</h2>
+                <span class="product-price">IDR 20,000</span>
+                <p class="product-desc">Perpaduan kelezatan ikan dengan sensasi pedas cabai pilihan, menciptakan pengalaman rasa yang tak terlupakan.</p>
+                <a href="https://wa.me/62895358814387?text=Halo%20Bonggolan%2C%20saya%20tertarik%20dengan%20varian%20Spicy%20Masterpiece." class="btn-luxury">Discover Now</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="img-box"><img src="snack3.jpg" alt="Bonggolan Hampers" class="product-img"></div>
+            <div class="overlay-info">
+                <h2 class="product-name">LUXURY HAMPERS</h2>
+                <span class="product-price">IDR 75,000</span>
+                <p class="product-desc">Paket eksklusif berbagai varian Bonggolan dalam kemasan mewah, cocok untuk hadiah istimewa.</p>
+                <a href="https://wa.me/62895358814387?text=Halo%20Bonggolan%2C%20saya%20tertarik%20dengan%20Luxury%20Hampers." class="btn-luxury">Discover Now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="marquee" style="margin-top: 80px;">
+        <div class="marquee-inner">
+            <span>PREMIUM FISH CAKE • BONGGOLAN INDONESIA • MADE WITH PASSION • GRESIK PRIDE • PREMIUM FISH CAKE • BONGGOLAN INDONESIA • MADE WITH PASSION • GRESIK PRIDE •</span>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 BONGGOLAN INDONESIA — GRESIK FINE SNACKS
+    </footer>
+
+</body>
+</html>
